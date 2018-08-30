@@ -22,7 +22,7 @@ public class PagePojo<T> implements Serializable {
     private Integer record;
 
     // 当前页的数据
-    private List<T> pageData;
+    private List<T> data;
 
     // 获取当前页码
     public Integer getPageIndex() {
@@ -103,11 +103,11 @@ public class PagePojo<T> implements Serializable {
         this.record = record;
     }
 
-    public List<T> getPageData() {
-        return pageData;
+    public List<T> getData() {
+        return data;
     }
 
-    public void setPageData(List<T> pageData) {
-        this.pageData = pageData;
+    public void setData(List<T> data) {
+        this.data = data;
     }
 }

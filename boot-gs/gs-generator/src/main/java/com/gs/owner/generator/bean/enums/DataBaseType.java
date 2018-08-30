@@ -9,16 +9,20 @@ import com.gs.common.util.enums.IBaseEnum;
  */
 public enum DataBaseType implements IBaseEnum {
 
-    MYSQL(1, "mysql数据库"),
-    ORACLE(2, "oracle数据库");
+    MYSQL(1, "mysql数据库", "com.mysql.jdbc.Driver"),
+    ORACLE(2, "oracle数据库", "");
 
     private int code;
 
     private String comment;
 
-    DataBaseType(int code, String comment){
+    /** 连库驱动类 */
+    private String driverClassName;
+
+    DataBaseType(int code, String comment, String driverClassName){
         this.code = code;
         this.comment = comment;
+        this.driverClassName = driverClassName;
     }
 
     @Override
@@ -29,6 +33,10 @@ public enum DataBaseType implements IBaseEnum {
     @Override
     public String getComment() {
         return this.comment;
+    }
+
+    public String getDriverClassName(){
+        return this.driverClassName;
     }
 
     @Override

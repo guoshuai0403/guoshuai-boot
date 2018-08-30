@@ -9,7 +9,12 @@ $(function () {
             type: "post",
             data: $("#connect_form").serialize(),
             success: function (data) {
-                console.log(data);
+                if (data.code == 200) {
+                    // 设置成功, 跳转页面
+                    window.location.href = "/table";
+                } else {
+                    alert(data.msg);
+                }
             },
             error: function (err) {
                 console.log(err);
@@ -25,7 +30,11 @@ $(function () {
             type: "post",
             data: $("#connect_form").serialize(),
             success: function (data) {
-                console.log(data);
+                if (data.obj == true) {
+                    alert("连接成功");
+                } else {
+                    alert("连接失败");
+                }
             },
             error: function (err) {
                 console.log(err);

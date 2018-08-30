@@ -1,11 +1,15 @@
-package com.gs.owner.generator.service;
+package com.gs.owner.generator.repository;
 
 import com.gs.owner.generator.bean.ConnectBean;
+import org.springframework.stereotype.Repository;
 
 /**
- * Created by guoshuai on 2018/8/24 0024.
+ * description:
+ *
+ * @auth guoshuai
+ * @since 2018/8/30
  */
-public interface IConnectService {
+public interface ITestRepository {
 
     /**
      * 测试数据库连接
@@ -13,5 +17,4 @@ public interface IConnectService {
      * @return
      */
     boolean test(ConnectBean connectBean) throws Exception;
-
 }

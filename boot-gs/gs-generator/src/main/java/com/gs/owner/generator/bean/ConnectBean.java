@@ -42,6 +42,12 @@ public class ConnectBean implements Serializable {
      */
     private String password;
 
+    /** 数据库名称 */
+    private String dbName;
+
+    /** 连库字符串 */
+    private String url;
+
     /** 关联多个表对象 */
     private List<TableBean> tableBeans;
 
@@ -99,6 +105,32 @@ public class ConnectBean implements Serializable {
 
     public void setTableBeans(List<TableBean> tableBeans) {
         this.tableBeans = tableBeans;
+    }
+
+    public String getUrl() {
+        if (DataBaseType.MYSQL.equals(this.getType())) {
+            return "jdbc:mysql://"+ this.getIp() +":"+ this.getPort() +"/"+ this.getDbName()
+                    +"?characterEncoding=utf8" +
+                    "&autoReconnect=true" +
+                    "&failOverReadOnly=false" +
+                    "&connectTimeOut=30000" +
+                    "&socketTimeOut=5000" +
+                    "&useSSL=false" +
+                    "&allowMultiQueries=true";
+        }
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getDbName() {
+        return dbName;
+    }
+
+    public void setDbName(String dbName) {
+        this.dbName = dbName;
     }
 
     @Override

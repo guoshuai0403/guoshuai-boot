@@ -1,21 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
-<head th:fargment="header(title)">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>代码生成</title>
-    <!-- Bootstrap -->
-    <link href="/three_party/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- custom -->
-    <link href="/css/application.css" rel="stylesheet">
-
-    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
-    <!-- 警告：通过 file:// 协议（就是pagehtml 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
-    <!--[if lt IE 9]>
-    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<head th:replace="common::header('代码生成-表格选择')">
 </head>
 <body>
 <div class="container-fluid">
@@ -23,32 +8,12 @@
         <!-- 左侧主页面 -->
         <div class="col-lg-10 col-md-10 col-sm-10 main">
         </div>
-        <!-- 右侧超链接 -->
-        <nav  th:fargment="menu">
-            <div class="col-lg-2 col-md-2 col-sm-2">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 text-center link">
-                        <a href="connect.html">指定数据库连接</a>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 text-center btn-info active link">
-                        <a href="table.html">选择要生成的数据库表</a>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 text-center link">
-                        <a href="file.html">选择要生成的文件类型</a>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 text-center link">
-                        <a>生成文件</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <!--右侧超链接-->
+        <nav th:include="common::menu"></nav>
     </div>
 </div>
-<nav th:fragment="application_js">
-    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-    <script src="/js/jquery-3.3.1.min.js"></script>
-    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-    <script src="/three_party/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<!-- 公共的js -->
+<nav th:include="common::application_js"></nav>
 </nav>
 </body>
 </html>

@@ -27,35 +27,41 @@
                             <label class="col-lg-2 col-md-2 col-sm-2 control-label">数据库位置</label>
                             <div class="checkbox">
                                 <label>
-                                    <input type="radio" value="1" checked name="position"> 远程
+                                    <input type="radio" value="1" name="position"> 远程
                                 </label>
                                 <label>
-                                    <input type="radio" value="2" name="position"> 本地
+                                    <input type="radio" value="2" checked name="position"> 本地
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="ip" class="col-lg-2 col-md-2 col-sm-2 control-label">数据库服务器ip</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="ip" name="ip" placeholder="数据库服务器ip">
+                                <input type="text" class="form-control" id="ip" name="ip" value="127.0.0.1" placeholder="数据库服务器ip">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="port" class="col-sm-2 control-label">数据库服务端口</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="port" name="port" placeholder="数据库服务端口">
+                                <input type="text" class="form-control" id="port" name="port" value="3306" placeholder="数据库服务端口">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="dbName" class="col-sm-2 control-label">数据库名称</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="dbName" name="dbName" value="higo_net" placeholder="数据库名称">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="username" class="col-sm-2 control-label">数据库登录用户名</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="username" name="username" placeholder="数据库登录用户名">
+                                <input type="text" class="form-control" id="username" name="username" value="root" placeholder="数据库登录用户名">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="password" class="col-sm-2 control-label">数据库登录密码</label>
                             <div class="col-sm-8">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="数据库登录密码">
+                                <input type="password" class="form-control" id="password" name="password" value="root" placeholder="数据库登录密码">
                             </div>
                         </div>
                         <div class="form-group">

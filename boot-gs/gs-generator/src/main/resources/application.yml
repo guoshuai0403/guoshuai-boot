@@ -4,6 +4,7 @@ server:
     context-path: /
   tomcat:
     uri-encoding: UTF-8
+
 #spring:
 #  thymeleaf:
 #    prefix: classpath:/page/
