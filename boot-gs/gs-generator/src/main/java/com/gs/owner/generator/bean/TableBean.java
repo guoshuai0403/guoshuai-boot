@@ -1,5 +1,6 @@
 package com.gs.owner.generator.bean;
 
+import com.gs.common.service.bean.pojo.PagePojo;
 import com.gs.owner.generator.bean.enums.TableType;
 
 import java.io.Serializable;
@@ -9,7 +10,7 @@ import java.util.List;
  * 数据库表对象
  * Created by guoshuai on 2018/8/29 0029.
  */
-public class TableBean implements Serializable {
+public class TableBean extends PagePojo<TableBean> implements Serializable {
 
     /** 表名 */
     private String name;

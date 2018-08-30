@@ -7,6 +7,113 @@
     <div class="row">
         <!-- 左侧主页面 -->
         <div class="col-lg-10 col-md-10 col-sm-10 main">
+            <!-- S主页面 -->
+            <div class="row main_tab">
+                <!-- 表名 -->
+                <div class="col-lg-5 col-md-5 col-sm-5 table-responsive">
+                    <table class="table table-striped table-bordered table-hover text-nowrap">
+                        <thead>
+                        <tr>
+                            <td colspan="3" class="text-center">数据库表格</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-center">
+                                <div class="row">
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                                        <input type="text" class="form-control" placeholder="输入表名或者表注释查询">
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <input type="button" class="btn btn-block btn-default" value="搜索">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="select"><input type="checkbox"></td>
+                            <td>表名</td>
+                            <td>表注释</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="table:${page.data}">
+                            <td><input type="checkbox" id="${table.id}" name="select"></td>
+                            <td th:text="${table.name}">user</td>
+                            <td th:text="${table.comment}">用户表</td>
+                        </tr>
+                        <!--<tr>-->
+                            <!--<td><input type="checkbox" name="select"></td>-->
+                            <!--<td>user</td>-->
+                            <!--<td>用户表</td>-->
+                        <!--</tr>-->
+                        </tbody>
+                    </table>
+                    <div class="row" style="height: 60px; line-height: 60px;">
+                        <div class="text-center col-lg-9 col-md-9 col-sm-9">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li class="active"><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="text-center col-lg-3 col-md-3 col-md-3">
+                            <input style="display: inline" type="button" class="btn btn-default" value="提交">
+                        </div>
+                    </div>
+                </div>
+                <!-- 表字段 -->
+                <div class="col-lg-6 col-md-6 col-sm-6 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 table-responsive">
+                    <table class="table table-striped table-bordered table-hover text-nowrap">
+                        <thead>
+                        <tr>
+                            <td colspan="5" class="text-center">表字段</td>
+                        </tr>
+                        <tr>
+                            <td>列名</td>
+                            <td>列注释</td>
+                            <td>列属性</td>
+                            <td>主外键</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>user</td>
+                            <td>用户表</td>
+                            <td>主键id</td>
+                            <td>主外键</td>
+                        </tr>
+                        <tr>
+                            <td>user</td>
+                            <td>用户表</td>
+                        </tr>
+                        <tr>
+                            <td>user</td>
+                            <td>用户表</td>
+                        </tr>
+                        <tr>
+                            <td>user</td>
+                            <td>用户表</td>
+                        </tr>
+                        <tr>
+                            <td>user</td>
+                            <td>用户表</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- E主页面 -->
         </div>
         <!--右侧超链接-->
         <nav th:include="common::menu"></nav>

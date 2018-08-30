@@ -32,7 +32,7 @@ public class TestRepository extends BaseDao implements ITestRepository {
                 return true;
             }
         } catch (Exception e) {
-
+            logger.error(e.getMessage());
         }
         return false;
     }

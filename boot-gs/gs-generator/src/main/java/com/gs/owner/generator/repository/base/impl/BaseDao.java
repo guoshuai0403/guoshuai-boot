@@ -1,12 +1,14 @@
 package com.gs.owner.generator.repository.base.impl;
 
 import com.gs.owner.generator.bean.ConnectBean;
-import com.gs.owner.generator.bean.enums.DataBaseType;
 import com.gs.owner.generator.repository.base.IBaseDao;
+import com.gs.owner.generator.repository.impl.TableResitory;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -19,6 +21,8 @@ import java.util.Properties;
  * @since 2018/8/30
  */
 public class BaseDao implements IBaseDao {
+
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /**
      * 获取sqlSession
