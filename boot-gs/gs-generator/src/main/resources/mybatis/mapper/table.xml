@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gs.owner.generator.repository.impl.TableResitory">
+
+    <!-- 分页查询符合条件的表格 -->
+    <select id="getByPage" resultType="com.gs.owner.generator.bean.TableBean" parameterType="com.gs.owner.generator.bean.TableBean">
+        SELECT
+ 			TABLE_NAME as name,
+ 			TABLE_COMMENT as comment,
+		    CASE TABLE_TYPE WHEN 'BASE TABLE' THEN 1 WHEN 'VIEW' THEN 2 END AS type
+		FROM
+			information_schema.TABLES
+		WHERE
+ 			 table_schema = #{connectBean.dbName}
+    </select>
+</mapper>
