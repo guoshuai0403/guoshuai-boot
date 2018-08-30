@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="common::header('代码生成-指定数据库')">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <!-- 左侧主页面 -->
+        <div class="col-lg-10 col-md-10 col-sm-10 main">
+            <div class="row">
+                <div class="col-lg-11 col-md-11 col-sm-11">
+                    <form id="connect_form" class="form-horizontal">
+                        <!-- 数据库类型 -->
+                        <div class="form-group">
+                            <label class="col-lg-2 col-md-2 col-sm-2 control-label">数据库类型</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="radio" value="1" checked name="type"> MYSQL
+                                </label>
+                                <label>
+                                    <input type="radio" value="2" name="type"> ORACLE
+                                </label>
+                            </div>
+                        </div>
+                        <!-- 数据库位置 -->
+                        <div class="form-group">
+                            <label class="col-lg-2 col-md-2 col-sm-2 control-label">数据库位置</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="radio" value="1" checked name="position"> 远程
+                                </label>
+                                <label>
+                                    <input type="radio" value="2" name="position"> 本地
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ip" class="col-lg-2 col-md-2 col-sm-2 control-label">数据库服务器ip</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="ip" name="ip" placeholder="数据库服务器ip">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="port" class="col-sm-2 control-label">数据库服务端口</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="port" name="port" placeholder="数据库服务端口">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="col-sm-2 control-label">数据库登录用户名</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="数据库登录用户名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">数据库登录密码</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="数据库登录密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button id="connect_form_submit" type="button" class="btn btn-default">提交</button>
+                                <button id="connect_test" type="button" class="btn btn-default">测试连接</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+         <!--右侧超链接-->
+        <nav th:include="common::menu"></nav>
+    </div>
+</div>
+<!-- 公共的js -->
+<nav th:include="common::application_js"></nav>
+<script type="application/javascript" src="/static/js/page/connect.js"></script>
+</body>
+</html>

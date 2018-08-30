@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>boot</artifactId>
+        <groupId>com.guoshuai.boot</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>boot-server</artifactId>
+    <packaging>pom</packaging>
+
+    <description>公共的微服务</description>
+
+    <modules>
+        <!-- 短信中心（短信微服务）-->
+        <module>server-sms</module>
+        <!-- 推送中心，推送微服务 -->
+        <module>server-push</module>
+        <!-- 定位、路线、区域相关微服务 -->
+        <module>server-location</module>
+        <!-- 支付微服务 -->
+        <module>server-pay</module>
+    </modules>
+
+
+</project>

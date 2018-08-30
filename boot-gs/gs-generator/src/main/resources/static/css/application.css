@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+/*清除样式*/
+body,a,p,em,b,h1,h2,h3,h4,h5,h6,select,checkbox,textarea,button,img,input,ul,li,ol,dl,dd,dt,div,span{ margin:0; padding:0; list-style:none; border:0;outline: none;}
+body{ background-color: white; font-size:12px; font-family:"Times New Roman", Times, serif; padding: 30px; overflow-x:hidden;}
+a{ color:#414141;display: inline-block; text-decoration:none;javascript:0;}
+a:hover{text-decoration: none;cursor: pointer}
+label{font-size: 14px; color: #0f0f0f}
+
+/* 右侧超链接 */
+.link{
+    height: 60px;
+    line-height: 60px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    font-size: 16px;
+}
+.main{
+}
+.main_tab table thead {
+    font-weight: bold;
+}
+.select{
+    width: 30px;
+}

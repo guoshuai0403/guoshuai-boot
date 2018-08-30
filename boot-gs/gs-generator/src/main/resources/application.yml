@@ -1,0 +1,9 @@
+server:
+  port: 10102
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+#spring:
+#  thymeleaf:
+#    prefix: classpath:/page/
