@@ -4,13 +4,13 @@ server:
     context-path: /
   tomcat:
     uri-encoding: UTF-8
-logging:
-  level:
-    com:
-      gs:
-        owner:
-          generator:
-            repository: debug
+#logging:
+#  level:
+#    com:
+#      gs:
+#        owner:
+#          generator:
+#            repository: debug
 #    root: debug
 
 #spring:

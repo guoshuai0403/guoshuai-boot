@@ -23,6 +23,9 @@ public class ColumnBean implements Serializable{
     /** 索引类型 */
     private ColumnIndexType indexType;
 
+    /** 列允许的最大长度 */
+    private Integer maxLength;
+
     /** 关联一个数据库表对象 */
     private TableBean tableBean;
 
@@ -56,6 +59,14 @@ public class ColumnBean implements Serializable{
 
     public void setIndexType(ColumnIndexType indexType) {
         this.indexType = indexType;
+    }
+
+    public Integer getMaxLength() {
+        return maxLength;
+    }
+
+    public void setMaxLength(Integer maxLength) {
+        this.maxLength = maxLength;
     }
 
     public TableBean getTableBean() {

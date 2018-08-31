@@ -10,7 +10,8 @@ import com.gs.common.util.enums.IBaseEnum;
 public enum DataBaseType implements IBaseEnum {
 
     MYSQL(1, "mysql数据库", "com.mysql.jdbc.Driver"),
-    ORACLE(2, "oracle数据库", "");
+    ORACLE(2, "oracle数据库", ""),
+    SQL_SERVER(3, "sql-server数据库", "com.mysql.jdbc.Driver");
 
     private int code;
 

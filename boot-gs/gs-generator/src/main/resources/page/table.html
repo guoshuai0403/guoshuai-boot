@@ -37,14 +37,9 @@
                         <tbody>
                         <tr th:each="table:${page.data}">
                             <td><input type="checkbox" id="${table.id}" name="select"></td>
-                            <td th:text="${table.name}">user</td>
-                            <td th:text="${table.comment}">用户表</td>
+                            <td class="table_name" th:text="${table.name}">user</td>
+                            <td class="table_comment" th:text="${table.comment}">用户表</td>
                         </tr>
-                        <!--<tr>-->
-                            <!--<td><input type="checkbox" name="select"></td>-->
-                            <!--<td>user</td>-->
-                            <!--<td>用户表</td>-->
-                        <!--</tr>-->
                         </tbody>
                     </table>
                     <div class="row" style="height: 60px; line-height: 60px;">
@@ -82,33 +77,11 @@
                             <td>列名</td>
                             <td>列注释</td>
                             <td>列属性</td>
-                            <td>主外键</td>
+                            <td>允许最大长度</td>
+                            <td>索引类型</td>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>user</td>
-                            <td>用户表</td>
-                            <td>主键id</td>
-                            <td>主外键</td>
-                        </tr>
-                        <tr>
-                            <td>user</td>
-                            <td>用户表</td>
-                        </tr>
-                        <tr>
-                            <td>user</td>
-                            <td>用户表</td>
-                        </tr>
-                        <tr>
-                            <td>user</td>
-                            <td>用户表</td>
-                        </tr>
-                        <tr>
-                            <td>user</td>
-                            <td>用户表</td>
-                        </tr>
-
+                        <tbody id="column_tbody">
                         </tbody>
                     </table>
                 </div>
@@ -121,6 +94,7 @@
 </div>
 <!-- 公共的js -->
 <nav th:include="common::application_js"></nav>
+<script type="application/javascript" src="/static/js/page/table.js" ></script>
 </nav>
 </body>
 </html>

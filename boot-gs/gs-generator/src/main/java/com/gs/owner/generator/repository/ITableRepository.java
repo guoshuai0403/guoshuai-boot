@@ -7,13 +7,13 @@ import com.gs.owner.generator.bean.TableBean;
  * 表格查询接口定义
  * Created by guoshuai on 2018/8/30 0030.
  */
-public interface ITableResitory {
+public interface ITableRepository {
 
     /**
-     * 分页查询数据库表格
+     * 分页查询数据库表格 - MySQL数据库
      * @param tableBean
      * @return
      * @throws Exception
      */
-    PagePojo<TableBean> getByPage(TableBean tableBean) throws Exception;
+    PagePojo<TableBean> mysqlGetByPage(TableBean tableBean) throws Exception;
 }

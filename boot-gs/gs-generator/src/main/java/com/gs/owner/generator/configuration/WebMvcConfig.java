@@ -1,17 +1,26 @@
 package com.gs.owner.generator.configuration;
 
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.support.config.FastJsonConfig;
+import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.gs.common.util.constant.Constant;
 import com.gs.owner.generator.common.converter.MyIBaseEnumConverter;
 import com.gs.owner.generator.interceptor.GlobalInterceptor;
+import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.config.annotation.*;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.templateresolver.ITemplateResolver;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 静态资源配置
@@ -55,6 +64,38 @@ public class WebMvcConfig extends WebMvcConfigurationSupport{
         return registration;
     }
 
+    @Override
+    protected void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        // 定义fastjson转换器
+        FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
+
+        // fastjson 配置
+        FastJsonConfig fastJsonConfig = new FastJsonConfig();
+
+        fastJsonConfig.setSerializerFeatures(
+                // 避免循环引用
+                SerializerFeature.DisableCircularReferenceDetect,
+                // 是否输出值为null的字段
+                SerializerFeature.WriteMapNullValue,
+                // 字符类型字段如果为null,输出为"",而非null
+                SerializerFeature.WriteNullStringAsEmpty,
+                // List字段如果为null,输出为[],而非null
+                SerializerFeature.WriteNullListAsEmpty,
+                // Boolean字段如果为null,输出为false,而非null
+                SerializerFeature.WriteNullBooleanAsFalse,
+                // 用枚举toString()值输出
+                SerializerFeature.WriteEnumUsingToString
+                );
+        fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
+
+        // 处理中文乱码
+        List<MediaType> fastMediaTypes = new ArrayList<MediaType>();
+        fastMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
+
+        fastJsonHttpMessageConverter.setSupportedMediaTypes(fastMediaTypes);
+
+        converters.add(fastJsonHttpMessageConverter);
+    }
 
     /**
      * 解决跨域问题

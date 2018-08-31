@@ -2,7 +2,7 @@ package com.gs.owner.generator.repository.impl;
 
 import com.gs.common.service.bean.pojo.PagePojo;
 import com.gs.owner.generator.bean.TableBean;
-import com.gs.owner.generator.repository.ITableResitory;
+import com.gs.owner.generator.repository.ITableRepository;
 import com.gs.owner.generator.repository.base.impl.BaseDao;
 import org.springframework.stereotype.Repository;
 
@@ -13,11 +13,10 @@ import java.util.List;
  * Created by guoshuai on 2018/8/30 0030.
  */
 @Repository
-public class TableResitory extends BaseDao implements ITableResitory {
-
+public class TableRepository extends BaseDao implements ITableRepository {
 
     @Override
-    public PagePojo<TableBean> getByPage(TableBean tableBean) throws Exception {
+    public PagePojo<TableBean> mysqlGetByPage(TableBean tableBean) throws Exception {
         try {
             PagePojo<TableBean> pagePojo = new PagePojo<TableBean>();
             // 查询当前页的数据

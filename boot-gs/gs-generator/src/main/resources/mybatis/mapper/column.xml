@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.gs.owner.generator.repository.impl.TestRepository">
+<mapper namespace="com.gs.owner.generator.repository.impl.ColumnRepository">
 
-    <!-- 测试数据库连接 -->
-    <select id="test" resultType="java.lang.Integer">
-        SELECT 1 FROM DUAL;
+    <!-- mysql根据数据库表名查询所有字段 -->
+    <select id="mysqlGetAllByTableName"
+            resultType="com.gs.owner.generator.bean.ColumnBean"
+            parameterType="com.gs.owner.generator.bean.TableBean">
+        SELECT
+            COLUMN_NAME AS name,
+            DATA_TYPE AS dataType,
+            CHARACTER_MAXIMUM_LENGTH AS maxLength,
+            COLUMN_COMMENT AS comment,
+            CASE COLUMN_KEY WHEN 'PRI' THEN 1 WHEN 'MUL' THEN 2 END AS indexType
+        FROM
+          information_schema.COLUMNS
+        WHERE
+            table_schema = #{connectBean.dbName}
+            AND TABLE_NAME = #{name}
     </select>
 </mapper>

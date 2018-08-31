@@ -2,7 +2,6 @@ package com.gs.owner.generator.repository.base.impl;
 
 import com.gs.owner.generator.bean.ConnectBean;
 import com.gs.owner.generator.repository.base.IBaseDao;
-import com.gs.owner.generator.repository.impl.TableResitory;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
