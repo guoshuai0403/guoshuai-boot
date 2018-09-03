@@ -1,9 +1,11 @@
 package com.gs.owner.generator.bean;
 
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.gs.owner.generator.bean.enums.ColumnIndexType;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 数据库列对象
@@ -28,6 +30,10 @@ public class ColumnBean implements Serializable{
 
     /** 关联一个数据库表对象 */
     private TableBean tableBean;
+
+    /** 创建时间 */
+    @JSONField(format = "yyyy-MM-dd")
+    private Date createDate;
 
     public String getName() {
         return name;
@@ -75,6 +81,14 @@ public class ColumnBean implements Serializable{
 
     public void setTableBean(TableBean tableBean) {
         this.tableBean = tableBean;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     @Override

@@ -5,6 +5,8 @@ import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.gs.common.util.constant.Constant;
 import com.gs.owner.generator.common.converter.MyIBaseEnumConverter;
+import com.gs.owner.generator.common.encryption.GsRequestBodyAdvice;
+import com.gs.owner.generator.common.encryption.GsResponseBodyAdvice;
 import com.gs.owner.generator.interceptor.GlobalInterceptor;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -40,6 +42,24 @@ public class WebMvcConfig extends WebMvcConfigurationSupport{
         return templateResolver;
     }
 
+//    /**
+//     * 入参解密
+//     * @return
+//     */
+//    @Bean
+//    public GsRequestBodyAdvice initGsRequestBodyAdvice(){
+//        return new GsRequestBodyAdvice();
+//    }
+//
+//    /**
+//     * 出参加密
+//     * @return
+//     */
+//    @Bean
+//    public GsResponseBodyAdvice initGsResponseBodyAdvice(){
+//        return new GsResponseBodyAdvice();
+//    }
+
     /**
      * 过滤器
      * @return
@@ -65,7 +85,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport{
     }
 
     @Override
-    protected void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         // 定义fastjson转换器
         FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
 

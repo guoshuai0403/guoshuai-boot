@@ -29,7 +29,7 @@ public class GlobalDefultExceptionHandler {
     public void IllegalArgumentExceptionHandler(HttpServletRequest request,
                                                                 IllegalArgumentException e, HttpServletResponse response) throws IOException {
         // 系统调试模式
-        Boolean isSysDebug = false;
+        Boolean isSysDebug = true;
         if (isSysDebug) {
             ResponseErrorMessage responseErrorMessage = new ResponseErrorMessage();
             // 调试代码时这里可以显示给客户端

@@ -19,6 +19,7 @@ function getColumn(table_name) {
         type: "get",
         data: {tableName:table_name},
         success: function (data) {
+            console.log(JSON.stringify(data));
             var columns = "";
             $.each(data.obj, function (index, col) {
                 columns =  columns +
@@ -33,6 +34,8 @@ function getColumn(table_name) {
             $("#column_tbody").html(columns);
         },
         error: function (err) {
+            console.log("err");
+            console.log(err.message);
             console.log(err);
         }
     });
